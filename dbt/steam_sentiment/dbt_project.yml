@@ -1,0 +1,15 @@
+name: 'steam_sentiment'
+version: '1.0.0'
+config-version: 2
+
+profile: 'steam_sentiment'
+
+model-paths: ["models"]
+test-paths: ["tests"]
+
+models:
+  steam_sentiment:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

@@ -1,0 +1,17 @@
+# Copy this to ~/.dbt/profiles.yml (or set DBT_PROFILES_DIR to this folder)
+# and fill in your real Snowflake credentials. NEVER commit real credentials -
+# use environment variables via env_var() as shown below instead.
+
+steam_sentiment:
+  target: dev
+  outputs:
+    dev:
+      type: snowflake
+      account: "{{ env_var('SNOWFLAKE_ACCOUNT') }}"       # e.g. nk97257.eu-central-2.aws
+      user: "{{ env_var('SNOWFLAKE_USER') }}"
+      password: "{{ env_var('SNOWFLAKE_PASSWORD') }}"
+      role: "{{ env_var('SNOWFLAKE_ROLE', 'ACCOUNTADMIN') }}"
+      database: "{{ env_var('SNOWFLAKE_DATABASE', 'STEAM_SENTIMENT') }}"
+      warehouse: "{{ env_var('SNOWFLAKE_WAREHOUSE', 'COMPUTE_WH') }}"
+      schema: marts
+      threads: 4

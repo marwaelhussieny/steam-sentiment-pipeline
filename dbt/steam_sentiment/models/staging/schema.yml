@@ -1,0 +1,28 @@
+version: 2
+
+sources:
+  - name: scored
+    database: "{{ target.database }}"
+    schema: scored
+    tables:
+      - name: steam_reviews_scored
+
+models:
+  - name: stg_steam_reviews
+    description: Cleaned, typed Steam reviews with sentiment scores attached.
+    columns:
+      - name: review_id
+        description: Synthesized stable hash key, unique per review.
+        tests:
+          - unique
+          - not_null
+      - name: recommendation
+        tests:
+          - accepted_values:
+              values: ["Recommended", "Not Recommended"]
+      - name: sentiment_label
+        tests:
+          - accepted_values:
+              values: ["POSITIVE", "NEGATIVE"]
+              config:
+                where: "sentiment_label is not null"

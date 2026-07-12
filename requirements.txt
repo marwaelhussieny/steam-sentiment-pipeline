@@ -1,0 +1,9 @@
+# Core pipeline dependencies. Dagster is installed separately (not listed
+# here) to avoid the same sqlalchemy version conflict hit in earlier
+# projects - run it in its own venv or container if using Dagster.
+dlt[snowflake]>=1.0
+pandas>=2.2
+transformers>=4.40
+torch>=2.2
+pytest>=8.0
+dbt-snowflake>=1.8
