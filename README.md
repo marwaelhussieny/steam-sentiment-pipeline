@@ -26,36 +26,8 @@ orchestrates the whole thing with **Dagster**.
 
 ## Architecture
 
-*(Diagram generated separately - see the prompt below if you want to
-regenerate or adapt it.)*
-
 ![Pipeline architecture](docs/architecture.png)
 
-<details>
-<summary>Prompt used to generate the architecture diagram</summary>
-
-```
-Create a clean, professional data engineering architecture diagram in a flat
-modern tech-illustration style (like official AWS architecture diagrams).
-Horizontal left-to-right flow on a white or light gray background.
-
-Components, left to right:
-1. A spreadsheet/CSV icon labeled "Steam Reviews CSV" (20,000 real reviews)
-2. An arrow into a box labeled "dlt" (subtitle: schema inference, idempotent merge load)
-3. An arrow into a database icon labeled "Snowflake - raw" 
-4. An arrow into a box labeled "HuggingFace DistilBERT" (subtitle: batch sentiment scoring) with a small robot/brain icon
-5. An arrow into a second database icon labeled "Snowflake - scored"
-6. An arrow into a box labeled "dbt" (subtitle: staging + marts) with the dbt logo
-7. An arrow into a final box labeled "Game Sentiment Summary" (subtitle: business-ready mart)
-
-Wrap steps 2 through 6 in a dashed rounded rectangle labeled "Dagster" with
-the Dagster logo near the label, since Dagster orchestrates the whole chain.
-
-Use a professional color palette: gray/tan for the raw source, teal for dlt
-and the raw Snowflake table, purple for the HuggingFace model box (to stand
-out as the ML/NLP step), and blue for dbt and the final mart. Clean
-sans-serif typography, minimal shadows, suitable as a GitHub README hero image.
-```
 
 </details>
 
